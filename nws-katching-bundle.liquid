@@ -1,0 +1,392 @@
+{% style %}
+    .product-form__input.product-form__quantity {
+       display: none;
+    }
+    .nws-bundle-item {
+      outline: 1px solid #b2b2b2;
+      padding: 15px 20px;
+      border-radius: 30px;
+      position: relative;
+      transition: 0.2s ease-in-out;
+    }
+    .nws-bundle-item:hover {
+      outline: 2px solid #b2b2b2;
+    }
+    .nws-bundle-item-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nws-radio-btn {
+      /* position: relative; */
+      width: 25px;
+      height: 25px;
+      border: 1px solid #08dcff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nws-same-radio {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+    }
+    .nws-radio-box {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+    }
+    .nws-bundle-item.nws-active .nws-radio-box {
+      background: #08dcff;
+    }
+    .nws-bundle-item.nws-active {
+      outline: 2px solid #08dcff;
+    }
+    .nws-bundle-name {
+       font-size: 20px;
+       margin-top: 0;
+       margin-bottom: 0;
+       line-height: 1;
+       color: #000;
+       font-weight: 600;
+    }
+    .nws-bundle-price {
+      font-size: 16px;
+      color: #000;
+      font-weight: 600;
+      text-align: end;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .nws-bundle-price-group {
+      text-align: center;
+    }
+    .nws-bundle-price-group del.nws-bundle-price {
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .nws-d-flex {
+       display: flex;
+       align-items: center;
+       gap: 18px
+    }
+    .nws-bundle-item {
+       margin-bottom: 20px;
+    }
+    .nws-bundle-heading {
+       font-size: 14px;
+       font-weight: 700;
+       text-align: center;
+       margin-top: 0;
+       margin-bottom: 16px;
+       position: relative;
+       display: flex;
+       align-items: center;
+    }
+    span.nws-you-save {
+       font-size: 14px;
+       color: #555555;
+       margin-top: 5px;
+       display: block;
+    }
+    .nws-bundle-heading:before {
+       content: "";
+       flex-grow: 1;
+       height: 2px;
+       background: #b2b2b2;
+       margin-right: 10px;
+    }
+    .nws-bundle-heading:after {
+       content: "";
+       flex-grow: 1;
+       height: 2px;
+       background: #b2b2b2;
+       margin-left: 10px;
+    }
+    .nws-flex-checkbox {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .nws-flex-checkbox label{
+       font-size: 13px;
+    }
+    label.nws-color-label {
+      font-size: 15px;
+  }
+  .nws-slec-three-variant, .nws-slec-two-variant {
+    z-index: 99;
+    position: relative;
+    display: none;
+  }
+  .nws-bundle-item.nws-active .nws-slec-three-variant, .nws-bundle-item.nws-active .nws-slec-two-variant {
+    display: block;
+  }
+{% endstyle %}
+<div class="nws-katching-bundle">
+  <div class="nws-bundle-wrapper">
+    <div class="nws-bundle-item nws-active">
+      <div class="nws-bundle-item-wrapper">
+        <div class="nws-d-flex">
+          <div class="nws-radio-btn">
+            <div class="nws-radio-box">
+              <input type="radio" name="single" data-qty="1" id="nws-radio-1" class="nws-same-radio" value="1">
+            </div>
+          </div>
+          <div class="nws-bundle-info">
+            <h3 class="nws-bundle-name">Single</h3>
+            <span class="nws-you-save">Standard</span>
+          </div>
+        </div>
+        <div class="nws-bundle-price">
+          <h2 class="nws-bundle-price">$25</h2>
+        </div>
+      </div>
+    </div>
+    <div class="nws-bundle-item">
+      <div class="nws-bundle-item-wrapper">
+        <div class="nws-d-flex">
+          <div class="nws-radio-btn">
+            <div class="nws-radio-box">
+              <input type="radio" name="double" data-qty="2" id="nws-radio-2" class="nws-same-radio" value="2">
+            </div>
+          </div>
+          <div class="nws-bundle-info">
+            <h3 class="nws-bundle-name">Double</h3>
+            <span class="nws-you-save">You Save 10%</span>
+          </div>
+        </div>
+        <div class="nws-bundle-price-group">
+          <h2 class="nws-bundle-price">$40</h2>
+          <del class="nws-bundle-price">$50</del>
+        </div>
+      </div>
+      <div class="nws-slec-two-variant">
+        <div class="line-item-property__field">
+          <label class="nws-color-label">Choose Colors</label>
+          <div class="nws-flex-checkbox nws-checked-two" id="nws-checked">
+            <input type="checkbox" id="Black" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="Black"
+            ><label for="Black">Black</label>
+            <input type="checkbox" id="White" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="White"
+            ><label for="White">White</label>
+            <input type="checkbox" id="Black" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="Black"
+            ><label for="Black">Black</label>
+            <input type="checkbox" id="White" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="White"
+            ><label for="White">White</label>
+          </div>
+          <input type="hidden" id="Your-name" name="properties[Color]">
+        </div>
+      </div>
+    </div>
+    <div class="nws-bundle-item">
+      <div class="nws-bundle-item-wrapper">
+        <div class="nws-d-flex">
+          <div class="nws-radio-btn">
+            <div class="nws-radio-box">
+              <input type="radio" name="trio" data-qty="3" id="nws-radio-3" class="nws-same-radio" value="3">
+            </div>
+          </div>
+          <div class="nws-bundle-info">
+            <h3 class="nws-bundle-name">Trio</h3>
+            <span class="nws-you-save">You Save 15%</span>
+          </div>
+        </div>
+        <div class="nws-bundle-price-group">
+          <h2 class="nws-bundle-price">$55</h2>
+          <del class="nws-bundle-price">$75</del>
+        </div>
+      </div>
+      <div class="nws-slec-three-variant">
+        <div class="line-item-property__field">
+          <label class="nws-color-label">Choose Colors</label>
+          <div class="nws-flex-checkbox nws-checked-three">
+            <input type="checkbox" id="Black" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="Black"
+            ><label for="Black">Black</label><br>
+            <input type="checkbox" id="White" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="White"
+            ><label for="White">White</label><br>
+            <input type="checkbox" id="Black" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="Black"
+            ><label for="Black">Black</label><br>
+            <input type="checkbox" id="White" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="White"
+            ><label for="White">White</label><br>
+            <input type="checkbox" id="Black" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="Black"
+            ><label for="Black">Black</label><br>
+            <input type="checkbox" id="White" hidden-data="Your-name" onchange="fillHidden('Your-name')" value="White"
+            ><label for="White">White</label><br>
+          </div>
+          <input type="hidden" id="Your-name" name="properties[Your name]">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+      const radioButtons = document.querySelectorAll('.nws-same-radio');
+    radioButtons.forEach(radio => {
+      radio.addEventListener('change', function() {
+        const allRadioBtns = document.querySelectorAll('.nws-bundle-item');
+        allRadioBtns.forEach(btn => btn.classList.remove('nws-active'));
+
+        const parentRadioBtn = this.closest('.nws-bundle-item');
+        if (this.checked) {
+          parentRadioBtn.classList.add('nws-active');
+        }
+      });
+    });
+
+
+
+            // Get all radio buttons for each bundle item
+      const singleRadios = document.getElementsByName("single");
+      const doubleRadios = document.getElementsByName("double");
+      const trioRadios = document.getElementsByName("trio");
+
+      singleRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          if (radio.checked) {
+            doubleRadios.forEach((doubleRadio) => doubleRadio.checked = false);
+            trioRadios.forEach((trioRadio) => trioRadio.checked = false);
+          }
+        });
+      });
+
+      doubleRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          if (radio.checked) {
+            singleRadios.forEach((singleRadio) => singleRadio.checked = false);
+            trioRadios.forEach((trioRadio) => trioRadio.checked = false);
+          }
+        });
+      });
+
+      trioRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          if (radio.checked) {
+            singleRadios.forEach((singleRadio) => singleRadio.checked = false);
+            doubleRadios.forEach((doubleRadio) => doubleRadio.checked = false);
+          }
+        });
+      });
+
+
+
+
+            // Get all radio buttons for each bundle item
+        const singleRadio = document.getElementsByName("single");
+        const doubleRadio = document.getElementsByName("double");
+        const trioRadio = document.getElementsByName("trio");
+
+        const quantityInput = document.querySelector('.quantity__input');
+
+        // Add event listeners to update the quantity input value based on the radio button selection
+        singleRadio.forEach((radio) => {
+          radio.addEventListener('change', () => {
+            if (radio.checked) {
+              quantityInput.value = 1;
+            }
+          });
+        });
+
+        doubleRadio.forEach((radio) => {
+          radio.addEventListener('change', () => {
+            if (radio.checked) {
+              quantityInput.value = 2;
+            }
+          });
+        });
+        trioRadio.forEach((radio) => {
+          radio.addEventListener('change', () => {
+            if (radio.checked) {
+              quantityInput.value = 3;
+            }
+          });
+        });
+
+
+
+    // script for select to colors
+
+      function fillHidden(hiddenname) {
+      var checkboxes = document.querySelectorAll('[hidden-data="'+hiddenname+'"]');
+      var hiddenfield = document.getElementById(hiddenname);
+      hiddenfield.value = ""
+      var i;
+      for (i = 0; i < checkboxes.length; i++) {
+        var x = checkboxes[i];
+        if(x.checked){
+          if(hiddenfield.value==""){
+            hiddenfield.value = x.value;
+            }else{
+            hiddenfield.value = hiddenfield.value + ", " + x.value;
+            }
+          }
+        }
+      }
+
+
+      function fillHidden(hiddenname) {
+      var checkboxes = document.querySelectorAll('[hidden-data="'+hiddenname+'"]');
+      var hiddenfield = document.getElementById(hiddenname);
+      hiddenfield.value = ""
+      var i;
+      for (i = 0; i < checkboxes.length; i++) {
+        var x = checkboxes[i];
+        if(x.checked){
+          if(hiddenfield.value==""){
+            hiddenfield.value = x.value;
+            }else{
+            hiddenfield.value = hiddenfield.value + ", " + x.value;
+            }
+          }
+        }
+      }
+
+
+    // script for sleect only two checkbox
+    document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.nws-checked-two input[type="checkbox"]');
+    let checkedCount = 0;
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          checkedCount++;
+          if (checkedCount > 2) {
+            this.checked = false;
+            checkedCount--;
+            alert('You can only select up to two Colors.');
+          }
+        } else {
+          checkedCount--;
+        }
+      });
+    });
+  });
+
+  // script for sleect only three checkbox
+    document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.nws-checked-three input[type="checkbox"]');
+    let checkedCount = 0;
+
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          checkedCount++;
+          if (checkedCount > 3) {
+            this.checked = false;
+            checkedCount--;
+            alert('You can only select up to three Colors.');
+          }
+        } else {
+          checkedCount--;
+        }
+      });
+    });
+  });
+</script>
